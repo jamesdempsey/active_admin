@@ -15,8 +15,8 @@ module ActiveAdmin
         if class_name.constantize.table_exists?
           columns = class_name.constantize.columns.map { |column| column.name.to_sym.inspect }
           columns.delete(':id')
-          "index do\n    selectable_column\n    id_column\n    default_actions\n    "\
-          "#{columns.join("\n    ")}\n  end"
+          "index do\n    selectable_column\n    id_column\n    default_actions\n    column "\
+          "#{columns.join("\n    column ")}\n  end"
         end
       end
 
